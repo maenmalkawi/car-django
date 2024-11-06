@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends "base.html"%} 
+{% block title%}
+<title> home </title>
+{%endblock%} 
 
- {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    <link rel="stylesheet" href="{% static 'css/home.css'  %}">
-    
-</head>
-<body>
-    <h1 class=id>welcome to home page</h1>
-{{ name }}
+{% block contant %}
 {% if worked %}
     <p>you have worked</p>
     {% else %}
@@ -24,7 +16,5 @@
     <p> country : {{user.country }}    </p>
 
     
-    {% endfor %}  
-
-</body>
-</html>
+{% endfor %}  
+{% endblock %}

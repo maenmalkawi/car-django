@@ -15,3 +15,9 @@ def home(request):
       "users":users
    }
    return render(request,'home.html',context = context) 
+
+def news(request):
+   return render(request,'news.html')
+
+def slider(request):
+   return render(request,'slider.html')
