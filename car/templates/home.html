@@ -4,6 +4,12 @@
 {%endblock%} 
 
 {% block contant %}
+    <h1> welcome to the home page you visit the page {{number_of_views}} time </h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit"> change logo </button>
+    </form>    
+    <h2> you change the logo {{ change_logo }} time </h2>
 {% if worked %}
     <p>you have worked</p>
     {% else %}
