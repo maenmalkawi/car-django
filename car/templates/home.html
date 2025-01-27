@@ -4,23 +4,33 @@
 {%endblock%} 
 
 {% block contant %}
-    <h1> welcome to the home page you visit the page {{number_of_views}} time </h1>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit"> change logo </button>
-    </form>    
-    <h2> you change the logo {{ change_logo }} time </h2>
-{% if worked %}
-    <p>you have worked</p>
-    {% else %}
-    <p>you haven't worked</p>
-    {% endif %}
-     {% for user in users %}
-    
-    <p> User : {{user.name }}    </p>
-    <p> phone : {{user.phone }}    </p>
-    <p> country : {{user.country }}    </p>
+ <h1> welcome to home page </h1>
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">CarModel</th>
+        <th scope="col">Date of industry</th>
+        <th scope="col">GearBox</th>
+        <th scope="col">Wheel</th>
+        <th scope="col">Engine</th>
 
-    
-{% endfor %}  
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in Cars %} 
+        <tr>
+            <td> {{i.id}} </td>
+            <td> {{i.CarModel}} </td>
+            <td> {{i.dateOfIndustry}} </td>
+            <td> {{i.gearBox}} </td>
+            <td> {{i.Wheel}} </td>
+            <td> {{i.Engine}} </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
