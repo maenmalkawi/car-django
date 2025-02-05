@@ -1,0 +1,38 @@
+body{
+    background-color:black;
+color:black ;
+
+}
+     
+.container-fluid{
+
+    margin-top: 0%;
+    
+}
+
+#nav{
+
+    padding: 0%;
+}
+
+.input-group{
+    /* margin-left: 100px; */
+margin-left: 300px;
+size: 10px;
+width: auto;
+}
+#buuton{
+    margin-left: 213px;
+}
+
+#submitButton{
+    margin-left: 220px;
+}
+
+#social{
+    color: white;
+    height: 90px;
+    width: 80px;
+    background-color:gray;
+}
+

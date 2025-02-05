@@ -1,36 +1,243 @@
 {%extends "base.html"%} 
 {% block title%}
+{% load static %}
+
 <title> home </title>
+
 {%endblock%} 
 
+
+
+
 {% block contant %}
- <h1> welcome to home page </h1>
- <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">CarModel</th>
-        <th scope="col">Date of industry</th>
-        <th scope="col">GearBox</th>
-        <th scope="col">Wheel</th>
-        <th scope="col">Engine</th>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 
-      </tr>
-    </thead>
-    <tbody>
-        {% for i in Cars %} 
-        <tr>
-            <td> {{i.id}} </td>
-            <td> {{i.CarModel}} </td>
-            <td> {{i.dateOfIndustry}} </td>
-            <td> {{i.gearBox}} </td>
-            <td> {{i.Wheel}} </td>
-            <td> {{i.Engine}} </td>
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col"><div id="divContent">
+      <div class="card" >
+          <img  id="car" src="{% static 'img/id6.png' %}" alt="">
+          <div class="card-body">
+            <h5 class="card-title">ID6</h5>
+            <p class="card-text">Volkswagen ID.6 Crozz Pure+</p>
+           <!-- <div><a onclick="savecart(0)"><i class="fas fa-shopping-cart" id="basket"></i> 
+             </a></div> -->
+            <a href="id6.html"  id="buttonC" class="btn btn-primary">details</a>
+          
+          </div> 
+        </div>
+      </div>
 
-        </tr>
-        {% endfor %}
-    </tbody>
-  </table>
+      
+    <div class="col">
+      <div  class="card">
+        <img  id="car" src="{% static 'img/mercides.jpeg' %} " alt="">
+        <div class="card-body">
+          <h5 class="card-title">mercides</h5>
+          <p class="card-text">Mercedes-Benz EQS 2023</p>
+          <!-- <a onclick="savecart(1)"><i class="fas fa-shopping-cart" id="basket"></i> -->
 
-{% endblock %}
+             
+          <a href="mercides.html"  id="buttonC" class="btn btn-primary buttonA" >details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img id="car" src="{% static 'img/audi.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">AUDI</h5>
+          <p class="card-text">Audi A6 2023 Premium Plus 45  Features </p>
+          <!-- <a onclick="savecart(2)"><i class="fas fa-shopping-cart" id="basket"></i>  -->
+          <a href="audi.html"  id="buttonC" class="btn btn-primary buttonA">details</a>
+        </div>
+      </div>  
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img  id="car" src="{% static 'img/range.jpg' %}" alt="" >
+        <div class="card-body">
+          <h5 class="card-title">RANGE ROVER</h5>
+          <p class="card-text">Range Rover 2023 Luxury Performance SUV</p>
+          <!-- <a onclick="savecart(3)"> <i class="fas fa-shopping-cart" id="basket"></i> -->
+          <a href="./range.html"  id="buttonC" class="btn btn-primary">details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <img  id="car" src="{% static 'img/tahoo white.png' %}" alt="" >
+        <div class="card-body">
+          <h5 class="card-title">TAHOE</h5>
+          <p class="card-text">Chevrolet Tahoe2023</p>
+          <!-- <a onclick="savecart(4)"><i class="fas fa-shopping-cart" id="basket"></i> -->
+          <a href="./tahoe.html"  id="buttonC" class="btn btn-primary"  >details</a>
+        </div>
+      </div>
+     
+    </div>
+
+    <div class="col">
+
+    </div>
+
+    <div class="col"><div class="card">
+        <img id="car" src="./media/{% static 'img/charger.webp' %}" alt="" >
+        <div class="card-body">
+          <h5 class="card-title">dodge charger</h5>
+          <p class="card-text"> dodge charger 2023 </p>
+          <!-- <a onclick="savecart(6)"><i class="fas fa-shopping-cart" id="basket"></i> -->
+          <a href="./dodge.html"  id="buttonC" class="btn btn-primary"  >details</a>
+        </div>
+      </div></div>
+
+    <div class="col"> <div class="card">
+      <img id="car" src="{% static 'img/camaro.jpg' %}" alt="" >
+      <div class="card-body">
+        <h5 class="card-title">CAMARO</h5>
+        <p class="card-text">Chevrolet Camaro 2024</p>
+        <!-- <a  onclick="savecart(5)"><i class="fas fa-shopping-cart" id="basket"></i> -->
+        <a href="./camaroe.html"  id="buttonC" class="btn btn-primary"  >details</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col"><div class="card">
+      <img id="car" src="{% static 'img/bmw.jpg' %}" alt="" >
+      <div class="card-body">
+        <h5 class="card-title">BMW</h5>
+        <p class="card-text">BMW 8 Series (G15)</p>
+        <!-- <a onclick="savecart(7)"><i class="fas fa-shopping-cart" id="basket"></i> -->
+        <a href="./bmw.html"  id="buttonC" class="btn btn-primary"  >details</a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col" s>
+    <div class="card">
+      <img id="car" src="{% static 'img/hummer.webp' %}" alt="" >
+      <div class="card-body">
+        <h5 class="card-title">HUMMER</h5>
+        <p class="card-text">2024 GMC Hummer EV SUV 2023</p>
+        <!-- <a onclick="savecart(8)"><i class="fas fa-shopping-cart" id="basket"></i> -->
+        <a href="./hummer.html"  id="buttonC" class="btn btn-primary">details</a>
+      </div>
+    </div> 
+  </div>
+    
+  <div class="col">
+    <div class="card">
+      <img id="car" src="{% static 'toyota.jpg' %}" alt="" >
+      <div class="card-body">
+        <h5 class="card-title">TOYOTA</h5>
+        <p class="card-text">Toyota Fortuner 2023</p>
+        <div>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+              </div>
+              <div class="col">
+                <a href="./toyota.html" id="buttonD" class="btn btn-primary"  >details</a>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+     <!--  START FOOTER -->
+
+    <footer id="footerA" class="text-center bg-body-tertiary">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+               
+              class="btn btn-link btn-floating btn-lg text-body m-1"
+              href="https://www.facebook.com/maen.malkawi.90?mibextid=LQQJ4d
+              "
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            
+      
+            <!-- Instagram -->
+            <a
+               
+              class="btn btn-link btn-floating btn-lg text-body m-1"
+              href="https://www.instagram.com/maen._malkawi?igsh=MXhjbHA3cDFoNXR0Yg%3D%3D&utm_source=qr"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+               
+              class="btn btn-link btn-floating btn-lg text-body m-1"
+              href="https://www.linkedin.com/in/maen-malkawi-099347278/"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+               
+              class="btn btn-link btn-floating btn-lg text-body m-1"
+              href="https://github.com/maenmalkawi?tab=repositories"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2024 Copyright:
+          <a class="text-body">maen malkawi</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+
+<!-- END FOOTER -->
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+></script>
+
+<script>
+var subMenu = document.getElementById("subMenu");
+
+function toggleMenu(){
+subMenu.classList.toggle("sub-menu");
+}
+</script>  
+{%endblock%} 
+
+

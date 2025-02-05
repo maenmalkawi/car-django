@@ -1,10 +1,15 @@
 body{
     background-color: brown;
+    display: grid;
 }
 body{
     background-color:gray; 
    margin: 0%;
    padding: 0;
+
+}
+.col{
+   display:grid;
 }
 
 .container-fluid{

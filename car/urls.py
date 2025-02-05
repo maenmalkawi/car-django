@@ -8,5 +8,6 @@ urlpatterns = [
    path('news/',news,name='news'),
    path('slider/',slider,name='slider'),
    path('addcars/',addcars,name='addcars'),
+
    
 ]

@@ -1,14 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Users, Car
 from django.contrib.auth.decorators import login_required
+from .forms import carForms
 
 @login_required(login_url='login')
 def home(request):
     print('test home')
 
     # Query all cars
-    Cars = Car.objects.all()
+    cars = Car.objects.all()
 
     # Sample user name
     name = "ahmad"
@@ -16,6 +17,7 @@ def home(request):
     # Query all users
     users = Users.objects.all()
     print(request.user.groups.filter(name="manegar").exists())
+    
 
     # Check if the logged-in user is in the 'manager' group
     is_manager = request.user.groups.filter(name__iexact='manegar').exists()
@@ -36,11 +38,11 @@ def home(request):
     # Context for template
     context = {
         'name': name,
-        "worked": is_manager,  # Indicate if user is in the 'manager' group
+        "worked": is_manager,
         "users": users,
         "number_of_views": number_of_views,
         "change_logo": change_logo,
-        "Cars": Cars,
+        "cars": cars,
     }
 
     return render(request, 'home.html', context)
@@ -52,24 +54,42 @@ def slider(request):
     return render(request, 'slider.html')
 
 @login_required(login_url='login')
-def addcars(request) :
+def addcars(request):
+    print('test')
     user = request.user
-    if user.groups.filter(name='manegar').exists():
-    # create a form to add cars from the model cars
-        if request.method =='POST':
-            pass    
-        return render(request, 'addcars.html')
+    print(user.groups.filter(name__iexact='manegar').exists())
+    if user.groups.filter(name__iexact='manegar').exists():
+        if request.method == 'POST':
+            print(request.POST)
+            form = carForms(request.POST)
+            print(form.is_valid())
+            if form.is_valid():
+                form.save()
+                print('Car added successfully')
+                return redirect('home')  # Fixed missing return statement
+
+        else:
+            form = carForms()  # Instantiate empty form for GET request
+
+        return render(request, 'addcars.html', {'form': form})
     else:
-        return HttpResponse("YOU DONT HAVE PERMISSION TO ADD CAR")
-    
-    
+        return HttpResponse("YOU DON'T HAVE PERMISSION TO ADD A CAR")
+
 @login_required(login_url='login')
-def addCarInstance(request) :
+def addCarInstance(request):
     user = request.user
-    if user.groups.filter(name='manegar').exists():
-    # create a form to add cars from the model cars
-        if request.method =='POST':
-            pass    
-        return render(request, 'addcars.html')
+    if user.groups.filter(name__iexact='manegar').exists():
+        if request.method == 'POST':
+            form = carForms(request.POST)
+            if form.is_valid():
+                form.save()
+                print('Car instance added successfully')
+                return redirect('home')  # Ensure redirection after saving
+
+        else:
+            form = carForms()  # Instantiate empty form for GET request
+
+        return render(request, 'addcars.html', {'form': form})
     else:
-        return HttpResponse("YOU DONT HAVE PERMISSION TO ADD CAR")    
+        return HttpResponse("YOU DON'T HAVE PERMISSION TO ADD A CAR")
+    

@@ -1,0 +1,50 @@
+body{
+    background-color:gray;
+color:gray ;
+
+}
+     
+.container-fluid{
+
+    margin-top: 0%;
+    
+}
+
+#nav{
+
+    padding: 0%;
+}
+
+.input-group{
+    /* margin-left: 100px; */
+margin-left: 300px;
+size: 10px;
+width: auto;
+}
+
+#ree{
+    background-color: gray;
+}
+
+#footera{
+    margin-top: 20px;
+}
+.btn-primary{
+    margin-left: 20px;
+}
+
+#cover{
+    margin-top: -70px;
+}
+
+#lobutton{
+
+    margin-top: -250px;
+    margin-left: 155px;
+border-radius: 10px;
+    height: 55px;
+    width: 105px;
+    background-color: rgb(51, 13, 242);
+    
+    
+}

@@ -1,0 +1,76 @@
+body{
+    background-color:gray;
+color:black ;
+
+}
+     
+.container-fluid{
+
+    margin-top: 0%;
+    
+}
+
+#nav{
+
+    padding: 0%;
+}
+
+.input-group{
+    /* margin-left: 100px; */
+margin-left: 300px;
+size: 10px;
+width: auto;
+}
+
+#stringA{
+    margin-top:50px;
+    font-style: oblique;
+    /* list-style: decimal; */
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+#Screen{
+margin-top: 20px;
+    margin-left: 1150px;
+    position:static;
+}
+#gridMain{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+               grid-gap: 20px;
+       
+   }
+   
+   .gridItem img{
+       width: 300px;
+       height: 200px;
+      
+   }
+   /* try to cinter the item it self in the grid col */
+   .gridItem{
+       display: grid;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+   
+   padding-top: 10px;
+    
+}
+#carrr{
+    margin-top: 30px;
+    margin-left: 250px;
+}
+
+#write{
+    margin-left: 20px;
+}
+
+#merr{
+    height: 150px;
+    width: 150px;
+    margin-left: 30px;
+}
+#footera{
+    margin-top: 20px;
+}

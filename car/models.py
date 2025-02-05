@@ -15,7 +15,7 @@ class Users(models.Model):
 class Car(models.Model):
  # att : car model , engine , gearbox , wheel
     CarModel = models.CharField(max_length=20, help_text="Enter your car model")
-    dateOfIndustry = models.DecimalField( max_digits=10, decimal_places=0,verbose_name="date of industry",help_text="Enter your date of industry")
+    dateOfIndustry = models.DateField(verbose_name="date of industry",help_text="Enter your date of industry")
     Engine = models.CharField(max_length=20, help_text="Enter your Engine power")
     gearBox = models.CharField(max_length=20, help_text="Enter your gearBox type ")
     Wheel = models.CharField(max_length=20, help_text="Enter your wheel type ")
@@ -23,10 +23,10 @@ class Car(models.Model):
 # ordering 
 
     class Meta:
-            ordering=['dateOfIndustry']      
+            ordering=['CarModel']      
         # always the __STR__ RETYRN A STRING
     def __str__(self):
-            return self.CarModel + "" + f"{self.dateOfIndustry}"
+            return self.CarModel + "" 
             
       
 class Diameter(models.Model):
