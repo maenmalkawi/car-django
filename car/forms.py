@@ -4,7 +4,7 @@ from .models import *
 class carForms(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ['CarModel','dateOfIndustry','Engine','gearBox','Wheel']
+        fields ='__all__'
         widgets = {
             'dateOfIndustry':forms.DateInput(attrs={'type':'date'}),
         }

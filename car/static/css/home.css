@@ -1,21 +1,15 @@
 body{
-    background-color: brown;
-    display: grid;
-}
-body{
-    background-color:gray; 
-   margin: 0%;
-   padding: 0;
+    background-color: gray;
 
 }
+
 .col{
    display:grid;
 }
 
 .container-fluid{
-
-   margin-top: 0%;
    
+   margin-top: 0%;
 }
 
 #nav{
@@ -43,7 +37,7 @@ margin-top: 20px;
 }
 .card{
 margin-top: 10px;
-margin-left: 50px;
+margin-left: 20px;
    height: 550px;
    width: 450px;
    /* background-color: ; */
@@ -51,6 +45,7 @@ margin-left: 50px;
    display:inline-table;
    font-size: larger;
    border-radius: 50px;
+   display: grid;
 } 
 
 #car{

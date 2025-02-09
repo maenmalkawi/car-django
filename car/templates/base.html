@@ -12,11 +12,16 @@
         {% block title%}
         {%endblock%}
         {% load bootstrap5 %}
+        {% load static %}
+
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% comment %} <link rel="stylesheet" href=""> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        
+
         {% block style %} 
         {%endblock%}
     </head>

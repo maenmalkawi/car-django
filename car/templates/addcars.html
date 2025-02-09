@@ -6,7 +6,10 @@
 {% block contant %}
 <form method="POST">
   {% csrf_token %}
-    <div class="form-group">
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+  {% comment %} {% csrf_token %} {% endcomment %}
+    {% comment %} <div class="form-group">
       <label for="exampleInputEmail1">CarModel</label>
       <input name="CarModel" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a CarModel">
       <small id="emailHelp" class="form-text text-muted"></small>
@@ -31,6 +34,6 @@
       <label for="exampleInputPassword1">Wheel</label>
       <input name="Wheel" type="number" class="form-control" id="exampleInputPassword1" placeholder="Wheel">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
   </form>
 {%endblock%} 
