@@ -1,38 +1,64 @@
-body{
-    background-color:black;
-color:black ;
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background:#000000;
+color: aliceblue;
+}
+.vh-100{
+    background-color: #000000;
+    color: aliceblue;
 
 }
-     
-.container-fluid{
+#fot{
+    background-color: #000000;
+    color: aliceblue;
 
-    margin-top: 0%;
+    text-align: center;
+}
+.reset{
+    color:#FF7300;
     
 }
-
-#nav{
-
-    padding: 0%;
-}
-
-.input-group{
-    /* margin-left: 100px; */
-margin-left: 300px;
-size: 10px;
-width: auto;
-}
-#buuton{
-    margin-left: 213px;
-}
-
-#submitButton{
-    margin-left: 220px;
-}
-
-#social{
+reset :hover{
     color: white;
-    height: 90px;
-    width: 80px;
-    background-color:gray;
 }
+#rege{
+color: aliceblue;
+font-size: 15px;
 
+}
+#login{
+    background-color: #FF7300;
+    border-color: #FF7300;
+}
+.but{
+    height: 50px;
+    width: 130px;
+    margin-top: -70px;
+    margin-left: 200px;
+    padding-left: 2.5rem;
+    padding-right: 5.5rem;
+    display: inline-block;
+    font-weight: 400;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    border-radius: 5%;
+    border-color: #FF7300;
+    background-color: #FF7300;
+}
+.but :hover {
+    box-sizing: border-box;
+    color: red;
+
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}

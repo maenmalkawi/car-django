@@ -3,6 +3,11 @@ from django.http import HttpResponse
 from .models import Users, Car
 from django.contrib.auth.decorators import login_required
 from .forms import carForms
+from django.contrib.auth import login
+from .forms import RegisterForm
+from django.shortcuts import get_object_or_404
+from django.views.generic import DetailView
+from .models import Car
 
 @login_required(login_url='login')
 def home(request):
@@ -10,6 +15,7 @@ def home(request):
 
     # Query all cars
     cars = Car.objects.all()
+    print(cars)
 
     # Sample user name
     name = "ahmad"
@@ -93,3 +99,24 @@ def addCarInstance(request):
     else:
         return HttpResponse("YOU DON'T HAVE PERMISSION TO ADD A CAR")
     
+
+def register(request):
+    print('reg')
+    if request.method == "POST":
+        print("Register view called!")  # Debugging line
+
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            print("hello")
+            user = form.save()
+            login(request, user)  # Auto login after registration
+            return redirect("login")  # Redirect to home page or another page
+    else:
+        form = RegisterForm()
+    
+    return render(request, "registration/register.html", {"form": form})
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'car_detail.html'  # Create this template
+    context_object_name = 'car'    

@@ -11,34 +11,36 @@
 
 {% block contant %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
-
 {% for i in cars %}
 <div class="row row-cols-3">
   <div class = "col">
 
     <div class="card" >
-        <img  id="car" src="{{ i.image.url }}" alt="">
-        <div class="card-body">
+      {% if i.image %}
+      <img id="car" src="{{ i.image.url }}" alt="{{ i.CarModel }}">
+    {% else %}
+      <!-- Show your custom fallback image here -->
+      <img id="car" src="{% static 'img/no-image-found.png' %}" alt="No Image Available">
+    {% endif %}      
+    <div class="card-body">
           <h5 class="card-title">{{i.CarModel}}</h5>
           <p class="card-text">{{i.dateOfIndustry}}</p>
-         <!-- <div><a onclick="savecart(0)"><i class="fas fa-shopping-cart" id="basket"></i> 
-           </a></div> -->
-          <a href="id6.html"  id="buttonC" class="btn btn-primary">details</a>
+        
+          <a class="but" href="{{ i.get_absolute_url }}">
+            <button id="newbut" type="button" class="btn btn-primary">Details</button>
+          </a>
+          
 
         </div> 
       </div>
     </div>
 {% endfor %}
 
+     {% comment %} <!--  START FOOTER -->
 
-
-
-
-     <!--  START FOOTER -->
-
-    <footer id="footerA" class="text-center bg-body-tertiary">
+    <footer id="footer" class="text-center bg-body-tertiary">
         <!-- Grid container -->
-        <div class="container pt-4">
+        <div id="foot" class="container pt-4">
           <!-- Section: Social media -->
           <section class="mb-4">
             <!-- Facebook -->
@@ -93,7 +95,7 @@
         </div>
         <!-- Copyright -->
       </footer>
-
+ {% endcomment %}
 
 <!-- END FOOTER -->
 

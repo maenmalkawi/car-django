@@ -1,0 +1,17 @@
+{% extends 'base.html' %}  {# Make sure this matches your base template #}
+{% load static %}
+
+{% block contant %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}"> 
+
+<h1 class="page1">Registration Page</h1>
+
+<h2 class="page1">Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  {# Renders the registration form #}
+    <button type="submit">Sign Up</button>
+</form>
+
+<p class="login">Already have an account?<a class="login2" href="{% url 'login' %}">Login</a></p>
+{% endblock %}

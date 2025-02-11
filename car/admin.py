@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import Users , Car , Diameter , Body ,TypeCar , CarInstance
 # Register your models here.
+# from .models import Post
 
+# from django.utils.html import format_html
 @admin.register(Users)
 
 class UsersAdmin(admin.ModelAdmin) :

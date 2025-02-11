@@ -1,22 +1,57 @@
 body{
-    background-color: gray;
+    background-color: #000000;
+    color:  #FF7300;
 
 }
-
+#nav2{
+   background-color: #000000;
+   color: #FF7300;
+}
+#home{
+   color: white;
+   margin-left: 30px;
+}
+.nav{
+   background-color: #000000;
+   
+   
+}
 .col{
    display:grid;
+   margin-top: 70px;
+   color: white;
 }
 
 .container-fluid{
    
    margin-top: 0%;
 }
-
+#search1{
+   margin-right: 200px;
+}
+#GALLERY{
+   margin-right: 200px;
+   font-family: 'Times New Roman', Times, serif;
+   font-size:x-large;
+   font-style: italic;
+   color: white;
+}
+#search2{
+background-color: #FF7300;
+color: white;
+border-color: #000000;
+}
 #nav{
 
    padding: 0%;
 }
-
+.but{
+margin-left: 330px;
+margin-top: 100px;
+}
+#newbut{
+   margin-top: 100px;
+}
 .content{
 
    margin-left: 50px;
@@ -36,18 +71,24 @@ margin-top: 20px;
 
 }
 .card{
-margin-top: 10px;
+margin-top: 130px;
 margin-left: 20px;
    height: 550px;
    width: 450px;
-   /* background-color: ; */
-   color: black;
+   background-color: black; 
+   color: white;
+   font-family: 'Times New Roman', Times, serif;
    display:inline-table;
    font-size: larger;
    border-radius: 50px;
    display: grid;
 } 
-
+#newbut{
+   margin-top: 100px;
+   color: white;
+   background-color: #FF7300;
+   border-color: #FF7300;
+}
 #car{
 width: 449px; 
 height: 300px;
@@ -65,16 +106,31 @@ border-radius: 20px;
    margin-top: 50px;
    margin-left: 340px;
 }
+.dropdown-item{
+   background-color: #000000;
+}
+.formm{
+   margin-top: 30px;
+   color: aliceblue;
+}
+.subb{
+   color: white;
+   background-color: #FF7300;
+   background-color: #FF7300;
+   border-radius: 10px;
+}
+#ADDCAR{
+   background-color:#FF7300;
+   border-color: #FF7300;
+}
 #buttonC{
 margin-top:85px;
 margin-left: 340px;
 
 }
-#footerA{
-
-margin-top: 30px;
-
-
+#footer{
+   background-color: #FF7300;
+position:fixed;
 }
 #buttonB{
    margin-top: 100px;
@@ -95,6 +151,8 @@ margin-top: 30px;
 
 .dropdown{
    margin-left: -50px;
+   background-color: #000000;
+   color: white;
 } 
 .fa{
    margin-left:500px;
@@ -153,7 +211,14 @@ margin-top: 30px;
    border-radius:10px;
    color: black;
  }
+ .sub-menu-link span {
+   font-size: 22px;
+   transition: transform 0.5s ease;
+}
 
+.sub-menu-link span:hover {
+   transform: translateX(5px);
+}
  #buttonD{
    margin-top: 75px;
    margin-left: 330px;
@@ -242,11 +307,7 @@ margin-top: 30px;
   margin-left: 340px;
   
   }
-  #footerA{
-  
-  margin-top: 30px;
-  
-  
+
   }
   #buttonB{
       margin-top: 100px;
@@ -333,8 +394,10 @@ margin-top: 30px;
       margin-left: 330px;
     }
 
+
+
    
- }
+ 
 
  @media  screen and (max-width:766px) {
    

@@ -1,5 +1,8 @@
 from django.db import models
 import uuid
+from django.urls import reverse
+
+
 
 
 
@@ -21,6 +24,9 @@ class Car(models.Model):
     Wheel = models.CharField(max_length=20, help_text="Enter your wheel type ")
     image = models.ImageField(upload_to='images/',blank=True,null=True)  # New image field
 
+    def get_absolute_url(self):
+        return reverse('car', kwargs={'pk': self.pk})  # Replace 'car-detail' with your URL name
+    
 # ordering 
 
     class Meta:
@@ -28,6 +34,11 @@ class Car(models.Model):
         # always the __STR__ RETYRN A STRING
     def __str__(self):
             return self.CarModel + "" 
+     
+from django.db import models
+
+
+
             
       
 class Diameter(models.Model):

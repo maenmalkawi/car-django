@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contant %}
+<div class="container">
+    <h1>{{ car.CarModel }}</h1>
+    <!-- Check if image exists before rendering -->
+    {% if car.image %}
+        <img src="{{ car.image.url }}" alt="{{ car.CarModel }}" style="max-width: 100%; height: auto;">
+    {% else %}
+    <img id="car" src="{% static 'default-image.png' %}" alt="No Image Available">
+    {% endif %}
+    <p><strong>Year:</strong> {{ car.dateOfIndustry }}</p>
+    <!-- Add more car details here -->
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Cars</a>  <!-- Adjust 'home' to your main page URL -->
+</div>
+{% endblock %}
