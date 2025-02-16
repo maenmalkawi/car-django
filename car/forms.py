@@ -20,7 +20,7 @@ class SearchForm(forms.Form):
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
-        fields = ['title', 'content']
+        fields = '__all__'
 
 class carForms(forms.ModelForm):
     class Meta:
