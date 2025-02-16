@@ -15,6 +15,19 @@ class Users(models.Model):
     def __str__(self) :
      return f'{self.phone}'
  
+# models.py
+
+class News(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+   
+ 
+    def get_absolute_url(self):
+        return reverse('news', kwargs={'pk': self.pk})  # Replace 'car-detail' with your URL name
+ 
+ 
 class Car(models.Model):
  # att : car model , engine , gearbox , wheel
     CarModel = models.CharField(max_length=20, help_text="Enter your car model")
@@ -23,6 +36,7 @@ class Car(models.Model):
     gearBox = models.CharField(max_length=20, help_text="Enter your gearBox type ")
     Wheel = models.CharField(max_length=20, help_text="Enter your wheel type ")
     image = models.ImageField(upload_to='images/',blank=True,null=True)  # New image field
+    price = models.CharField(max_length=20, help_text="Enter your price ",blank=True,null=True)
 
     def get_absolute_url(self):
         return reverse('car', kwargs={'pk': self.pk})  # Replace 'car-detail' with your URL name
@@ -35,7 +49,6 @@ class Car(models.Model):
     def __str__(self):
             return self.CarModel + "" 
      
-from django.db import models
 
 
 

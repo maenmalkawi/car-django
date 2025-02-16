@@ -1,0 +1,22 @@
+{%extends "base.html"%} 
+{% block title%}
+{% load static %}
+
+<title> home </title>
+
+{%endblock%} 
+{% block contant %}
+<link rel="stylesheet" href="{% static 'css/welcome.css' %}"> 
+
+<div class="video-container">
+    <video autoplay muted loop>
+        <source src="{% static 'video/car.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>Welcome to Our Website</h1>
+      <p>Enjoy the intro and click below to proceed!</p>
+      <button onclick="window.location.href='{% url 'login' %}'">Go to Login</button>
+    </div>
+  </div>
+  {%endblock%} 

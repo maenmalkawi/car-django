@@ -49,39 +49,50 @@
                       <a  id="home" class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a id="home" class="nav-link" href="{%url 'slider'%}">slider</a>
+                      <a id="home" class="nav-link" href="{%url 'slider'%}">Slider</a>
+                    </li>
+                    <li class="nav-item">
+                      <a id="home" class="nav-link" href="{%url 'news'%}">News</a>
                     </li>
                     </li>
-                  </ul>
-                <a   id="GALLERY" class="navbar-brand" href="#">CAR GALLERY</a>
+                </ul>
+                <a   id="GALLERY" class="navbar-brand" href="{% url 'home' %}">CAR <span>GALLERY</span></a>
 
-                  <form id="search1" class="d-flex">
-                    <input  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <form id="search1" class="d-flex" method="POST" action="{% url 'home' %}">
+                    {% csrf_token %}
+                    <input  class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
                     <button id="search2" class="btn btn-outline-success" type="submit">Search</button>
                   </form>
                 </div>
-              </div>
-             
-              <div  class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div  class="dropdown show">
+                <a class="btn btn-secondary" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                   {%if user.groups.all.0.name == 'manegar' %}
                   (manegar)
+                  {{user}}
+
                   {% elif user.groups.all.0.name == 'client' %}
                   (client)
+                  {{user}}
+
                   {%else%}
                   (admin)
+                  {{user}}
+
                   {%endif%}
                 </a>
               
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">setting</a>
-                  <a class="dropdown-item" href="{%url 'news'%}">action</a>
-
-                </div>
+               
             </div>
-            <a class="dropdown-item" href="{% url  'logout' %}">logout</a>
+            <button  class="but2">
+              <a id="logout2" href="{% url  'logout' %} ">LogOut</a>
+              </button>  
+            
+          </div>
              
               
+              {% comment %} <button class="but">
+                <a id="logout2" href="{% url  'logout' %} ">logout</a>
+                </button>  {% endcomment %}
           </nav>
            
 

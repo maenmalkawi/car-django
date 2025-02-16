@@ -1,0 +1,16 @@
+<!-- news.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block title%}
+<title> ADD NEWS </title>
+{%endblock%} 
+
+{% block contant %}
+<link rel="stylesheet" href="{% static 'css/addnews.css' %}"> 
+
+  <form id="form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add News</button>
+  </form>
+{% endblock %}

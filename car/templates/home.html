@@ -12,10 +12,10 @@
 {% block contant %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
 {% for i in cars %}
-<div class="row row-cols-3">
+<div id="gri1" class="row row-cols-3">
   <div class = "col">
 
-    <div class="card" >
+    <div id="carrd" class="card" >
       {% if i.image %}
       <img id="car" src="{{ i.image.url }}" alt="{{ i.CarModel }}">
     {% else %}
@@ -25,6 +25,8 @@
     <div class="card-body">
           <h5 class="card-title">{{i.CarModel}}</h5>
           <p class="card-text">{{i.dateOfIndustry}}</p>
+          <p class="card-text">{{i.price}}</p>
+
         
           <a class="but" href="{{ i.get_absolute_url }}">
             <button id="newbut" type="button" class="btn btn-primary">Details</button>

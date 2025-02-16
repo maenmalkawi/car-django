@@ -1,0 +1,41 @@
+{%extends "base.html"%} 
+{% block title%}
+{% load static %}
+
+<title> news </title>
+
+{%endblock%} 
+
+
+
+
+{% block contant %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+
+{% for i in news %}
+<div class = "col">
+
+    <div id="carrd" class="card" >
+      {% if i.image %}
+      <img id="car" src="{{ i.image.url }}" alt="{{ i.title }}">
+        {% else %}
+      <!-- Show your custom fallback image here -->
+      <img id="car" src="{% static 'img/no-image-found.png' %}" alt="No Image Available">
+        {% endif %}      
+        
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.created_at}}</p>
+        
+          <a class="but" href="">
+            <button id="newbut" type="button" class="btn btn-primary">Details</button>
+          </a>
+          
+
+        </div> 
+      </div>
+{%endfor%}
+    </div>
+{% endblock %}
+
+
+    

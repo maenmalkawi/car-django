@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Users, Car
+from .models import Users, Car,News
 from django.contrib.auth.decorators import login_required
 from .forms import carForms
 from django.contrib.auth import login
@@ -8,21 +8,39 @@ from .forms import RegisterForm
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView
 from .models import Car
+from .forms import NewsForm
+from django.contrib.auth.decorators import user_passes_test
+from .forms import SearchForm
+
+
+def welcome(request):
+    return render(request, 'welcome.html')
+
+
+def search_view(request):
+    results = []
+    form = SearchForm(request.GET or None)
+
+    if form.is_valid():  # Check if the form is valid
+        query = form.cleaned_data['query']
+        # Use your model and field(s) to perform the search
+        results = Car.objects.filter(CarModel__icontains=query)  # Adjust 'name' to your field
+        print(results)
+    return render(request, 'search.html', {'form': form, 'results': results})
 
 @login_required(login_url='login')
 def home(request):
     print('test home')
 
+
     # Query all cars
     cars = Car.objects.all()
-    print(cars)
 
     # Sample user name
     name = "ahmad"
 
     # Query all users
     users = Users.objects.all()
-    print(request.user.groups.filter(name="manegar").exists())
     
 
     # Check if the logged-in user is in the 'manager' group
@@ -37,9 +55,8 @@ def home(request):
 
     # Handle session data for logo change
     change_logo = request.session.get('change_logo', 0)
-    if request.method == 'POST':
-        print('Post request received')
-        request.session['change_logo'] = change_logo + 1
+    # if request.method == 'POST':
+    #     request.session['change_logo'] = change_logo + 1
 
     # Context for template
     context = {
@@ -50,14 +67,32 @@ def home(request):
         "change_logo": change_logo,
         "cars": cars,
     }
+    if request.method == 'POST':
+      search=  request.POST
+      form = SearchForm(search)
+      print(form)
+      if form.is_valid():  # Check if the form is valid
+        query = form.cleaned_data['query']
+        # Use your model and field(s) to perform the search
+        results = Car.objects.filter(CarModel__icontains=query)  # Adjust 'name' to your field
+        print(results)
+        context['cars']=results
+        return render(request, 'home.html', context)
+        
+        
+    
 
     return render(request, 'home.html', context)
 
 def news(request):
-    return render(request, 'news.html')
+    news = News.objects.all()
+    
+    return render(request, 'news.html',{'news':news})
 
 def slider(request):
+    
     return render(request, 'slider.html')
+
 
 @login_required(login_url='login')
 def addcars(request):
@@ -81,6 +116,7 @@ def addcars(request):
     else:
         return HttpResponse("YOU DON'T HAVE PERMISSION TO ADD A CAR")
 
+
 @login_required(login_url='login')
 def addCarInstance(request):
     user = request.user
@@ -98,7 +134,32 @@ def addCarInstance(request):
         return render(request, 'addcars.html', {'form': form})
     else:
         return HttpResponse("YOU DON'T HAVE PERMISSION TO ADD A CAR")
-    
+
+
+def is_manager(user):
+    return user.groups.filter(name='manegar').exists()  # Replace with your group logic
+
+
+def add_news(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('addnews')  # Replace 'news_list' with your news page URL name
+    else:
+        form = NewsForm()
+    return render(request, 'addnews.html', {'form': form})
+from django.shortcuts import render
+
+# def news_view(request):
+#     # Example data for a news article
+#     news = {
+#         'title': 'Breaking News: Django Simplifies Web Development!',
+#         'content': 'Django, the popular Python web framework, continues to simplify the process of building web applications. Developers praise its robustness and flexibility.',
+#         'created_at': '2025-02-13',
+#     }
+#     return render(request, 'news.html', {'news': news})
+        
 
 def register(request):
     print('reg')

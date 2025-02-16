@@ -1,0 +1,36 @@
+body{
+    background-color: #000000;
+    color:  white;
+}
+.container{
+    margin-top: 50px;
+}
+h1{
+    color: aliceblue;
+}
+#img1{
+    height: 500px;
+    width: auto;
+    margin-left: 500px;
+}
+p{
+    margin-top: 50px;
+    color: white;
+    font-size: 30px;
+    display:grid 4px 10px;
+    margin-left: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+span{
+    color: #FF7300;
+}
+#Back{
+    background-color: #FF7300;
+    border-color:#FF7300;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 17px;
+    margin-top: -100px;
+    margin-left:1100px;
+    height: 50px;
+    width: 130px;
+}
