@@ -65,17 +65,17 @@
                   </form>
                 </div>
                 <div  class="dropdown show">
-                <a class="btn btn-secondary" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                <a  class="btn btn-secondary" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                   {%if user.groups.all.0.name == 'manegar' %}
-                  (manegar)
+                  
                   {{user}}
 
                   {% elif user.groups.all.0.name == 'client' %}
-                  (client)
+                  
                   {{user}}
 
                   {%else%}
-                  (admin)
+                  
                   {{user}}
 
                   {%endif%}

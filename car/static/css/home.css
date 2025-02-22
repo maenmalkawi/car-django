@@ -3,6 +3,15 @@ body{
     color:  #FF7300;
 
 }
+#dropdownMenuLink{
+ background-color: #000000;  
+color: #e5e5e5;
+border-color: #000000;
+font-family: 'Times New Roman', Times, serif;
+font-size:25px;
+
+}
+
 #nav2{
    background-color: #000000;
    color: #FF7300;
@@ -422,14 +431,6 @@ position:fixed;
 
 
 
-   
- 
-
- @media  screen and (max-width:766px) {
-   
-
-   
- }
 
 
  .sub-menu-wrap{
@@ -505,7 +506,42 @@ font-weight: 600;
 .sub-menu-link span:hover{
    transform: translateX(5px);
 }
+/* Mobile (Phones)
+@media screen and (max-width: 768px) {
+   .hero h1 {
+       font-size: 2rem;
+   }
 
+   .features {
+       grid-template-columns: 1fr;
+       width: 90%;
+   }
+
+   nav ul {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   nav ul li {
+       margin: 10px 0;
+   }
+}
+
+@media only screen and (max-width:800px) {
+   /* For tablets: */
+   /* #home,#nav2,#gri1,#logout2,body{
+     width: 80%;
+     padding: 0;
+   }
+   .right {
+     width: 100%;
+   }
+ }
+ @media only screen and (max-width:500px) {
+   /* For mobile phones: */
+   /* .menu, .main, .right {
+     width: 100%;
+   } */ 
 
 
 

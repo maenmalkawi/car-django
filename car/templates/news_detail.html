@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contant %}
+<link rel="stylesheet" href="{% static 'css/detaled.css' %}"> 
+
+<div class="container">
+    <!-- Check if image exists before rendering -->
+    {% if news.image %}
+        <img id="img1"  src="{{ news.image.url }}" alt="{{ news.title }}">
+    {% else %}
+    <img id="car" src="{% static 'default-image.png' %}" alt="No Image Available">
+    {% endif %}
+    <p><strong>News Title : </strong> <span> {{ news.title }}</span></p>
+
+    <p><strong>content : </strong> <span> {{ news.content }}</span></p>
+    <p><strong>created_at : </strong> <span>{{ news.created_at }}</span></p>
+
+
+
+
+
+    <!-- Add more car details here -->
+    <a href="{% url 'news' %}" id="Back" class="btn btn-secondary">Back to news</a>  <!-- Adjust 'home' to your main page URL -->
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 from .views import *
 from django.urls import path 
-from .views import CarDetailView
+from .views import CarDetailView,NewsDetailView
 from django.http import HttpResponse
 from . import views
 from django.contrib.auth.views import LoginView
@@ -13,9 +13,11 @@ urlpatterns = [
    path('slider/',slider,name='slider'),
    path('addcars/',addcars,name='addcars'),
    path('car/<int:pk>/', CarDetailView.as_view(), name='car'),
+   path('news/<int:pk>/', NewsDetailView.as_view(), name='news'),
    path('addnews/', views.add_news, name='addnews'),
    # path('news/', views.news_view, name='news'),
    path('search/', views.search_view, name='search'),
+   
    path('', views.welcome, name='welcome'),  # Home page
     path('login/', views.login, name='login'),  # Add your login view here   
     path('', views.welcome, name='welcome'),  # Root URL for the welcome page

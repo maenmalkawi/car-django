@@ -10,3 +10,16 @@ body{
     color: #FF7300;
 margin-left: 20px;
 }
+label{
+    margin-left: 20px;
+}
+form{
+    margin-left: 10px;
+display:block;
+}
+button{
+    background-color: #FF7300;
+    color:aliceblue;
+    border-color: #FF7300;
+    border-radius: 2px;
+}

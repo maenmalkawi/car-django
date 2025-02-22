@@ -181,3 +181,8 @@ class CarDetailView(DetailView):
     model = Car
     template_name = 'car_detail.html'  # Create this template
     context_object_name = 'car'    
+    
+class NewsDetailView(DetailView):
+    model = News
+    template_name = 'news_detail.html'  # Create this template
+    context_object_name = 'news'
